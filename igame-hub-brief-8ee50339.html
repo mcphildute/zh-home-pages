@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            background-color: #f7f5f3;
+            color: #2c2a28;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ---------- 深色 hero ---------- */
+        .hero {
+            background: #1f1e1c;
+            color: #eae6e0;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -30px;
+            bottom: -30px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #3d7e6a 0%, transparent 70%);
+            opacity: 0.15;
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .short-line {
+            font-size: 1.2rem;
+            max-width: 640px;
+            margin: 0 auto 0.5rem;
+            opacity: 0.85;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---------- 正文浅色区 ---------- */
+        .main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+            background: #ffffff;
+            border-radius: 24px 24px 0 0;
+            margin-top: -1.5rem;
+            flex: 1;
+        }
+
+        .intro p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .intro a {
+            color: #2e7a62;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro a:hover {
+            border-bottom-color: #2e7a62;
+            color: #205a48;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 2.2rem 0 1rem;
+            color: #1f1e1c;
+            letter-spacing: 0.5px;
+            border-left: 4px solid #3d7e6a;
+            padding-left: 1rem;
+        }
+
+        /* 特点列表 */
+        .feature-list {
+            list-style: none;
+            margin: 1.2rem 0 2rem;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative;
+            border-bottom: 1px solid #edebe9;
+            font-size: 1rem;
+        }
+
+        .feature-list li::before {
+            content: '·';
+            position: absolute;
+            left: 0.4rem;
+            top: 0.75rem;
+            color: #3d7e6a;
+            font-weight: 700;
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list strong {
+            font-weight: 600;
+            color: #1f1e1c;
+        }
+
+        /* 场景与提示卡片 */
+        .scene-note {
+            background: #f4f2ef;
+            padding: 1.6rem 1.8rem;
+            border-radius: 18px;
+            margin: 2rem 0;
+        }
+
+        .scene-note p {
+            margin-bottom: 0.8rem;
+        }
+
+        .scene-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-slice {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            margin: 1.8rem 0 2.2rem;
+        }
+
+        .faq-slice dt {
+            font-weight: 600;
+            color: #1f1e1c;
+            flex: 0 0 100%;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-slice dd {
+            flex: 1 1 220px;
+            font-size: 0.95rem;
+            color: #3e3b38;
+            padding-left: 0.5rem;
+            border-left: 2px solid #dad6d1;
+        }
+
+        .ending-note {
+            border-top: 1px solid #e0ddd8;
+            padding-top: 1.8rem;
+            margin-top: 2rem;
+            font-size: 0.98rem;
+            color: #5a5753;
+            text-align: center;
+        }
+
+        .ending-note a {
+            color: #2e7a62;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .ending-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 2.8rem 1rem 2.4rem;
+            }
+            .main {
+                padding: 2rem 1.2rem 3rem;
+                border-radius: 16px 16px 0 0;
+            }
+            .section-title {
+                font-size: 1.2rem;
+            }
+            .faq-slice {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+            .faq-slice dd {
+                flex: 1 1 auto;
+                border-left: none;
+                padding-left: 0;
+                padding-bottom: 0.6rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero .short-line {
+                font-size: 1rem;
+            }
+        }
+
+        /* footer */
+        .footer {
+            background: #1f1e1c;
+            color: #b0aba4;
+            text-align: center;
+            padding: 1.2rem 1rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <p class="short-line">资料如积木，慢慢搭出轮廓。</p>
+        <h1>爱游戏 · 整理日志</h1>
+        <p class="short-line" style="margin-top:0.8rem;">一份温和的信息索引，从日常收藏到系统梳理。</p>
+    </header>
+
+    <!-- 浅色正文区 -->
+    <div class="main">
+
+        <section class="intro">
+            <p>
+                大概从两年前开始，我习惯把看到的游戏设定、开发随笔、玩家讨论和旧杂志扫描页随手存下来。东西越积越多，检索却越来越费劲。后来试着按自己的方式重新归类，给每个条目写一句「为什么留下它」，慢慢就攒出了一个私人资料库。
+            </p>
+            <p>
+                这个过程的副产品，就是现在挂在 <a href="https://igame--hub.com">爱游戏</a> 上的索引页。没有算法推荐，也没有排行榜，只是一些我觉得值得被记住的内容，按类型和来源松散地排在一起。如果你也在找某种偏冷门的参考，或者只是想看看其他人怎么收藏游戏文化，或许能在这里翻到些有意思的东西。
+            </p>
+        </section>
+
+        <h2 class="section-title">索引里的几个角落</h2>
+        <ul class="feature-list">
+            <li><strong>设定集与开发档案</strong> – 收录了部分官方美术设定、早期 prototype 截图以及开发团队的注释笔记，按年份和工作室整理。</li>
+            <li><strong>玩家田野笔记</strong> – 来自不同社区的玩法记录、版本变迁回忆，以及一些线下活动的口述整理，保留原始语气。</li>
+            <li><strong>杂志与出版物摘录</strong> – 九十年代至今的杂志扫描、专栏文章与访谈，主要关注国内游戏刊物的历史切片。</li>
+            <li><strong>工具与资源链</strong> – 像素绘图、关卡编辑器、midi 归档、旧模拟器配置……能跑起来的我都附了校验值和短说明。</li>
+            <li><strong>阅读笔记</strong> – 关于游戏研究、设计理论和非虚构类书籍的摘评，不追求全面，只写实际触动过自己的段落。</li>
+        </ul>
+
+        <div class="scene-note">
+            <p>📂 一个常见的用法：写分析文章或做怀旧选题时，先来这里翻翻对应年份的玩家笔记和杂志扫描，往往能发现一些被主流综述忽略的细节。再顺着索引里的链接去原出处核实，效率比从头搜高很多。</p>
+            <p style="margin-top:0.6rem;">🔍 如果你也在整理类似的内容，欢迎通过索引页的「联系」功能交换资料。目前只接受纯文本或公开链接，不做文件托管。</p>
+        </div>
+
+        <h2 class="section-title">常见小问题</h2>
+        <dl class="faq-slice">
+            <dt>内容多久更新一次？</dt>
+            <dd>不定期，一般每月会补充几篇笔记或调整分类。没有固定排期。</dd>
+            <dt>可以转载索引里的内容吗？</dt>
+            <dd>标注来源即可。部分摘录来自他人作品，会在页面内注明原出处。</dd>
+            <dt>为什么没有评分或推荐？</dt>
+            <dd>每个人的收藏理由不同，我只负责整理和陈列，不做价值判断。</dd>
+        </dl>
+
+        <div class="ending-note">
+            <p>感谢你读到这里。如果你对某个条目感兴趣，不妨从 <a href="https://igame--hub.com">爱游戏</a> 首页开始慢慢翻看。</p>
+            <p style="margin-top:0.4rem;">希望这些整理对你有一点点帮助。</p>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <span>资料索引 · 持续整理中</span>
+    </footer>
+
+</body>
+</html>
